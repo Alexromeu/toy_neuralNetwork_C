@@ -76,7 +76,7 @@ void initialize_network(neural_network_t *network) {
                 if (i > 0) {
                     int prev = network->layers[i-1].count;
                     int curr = layer->count;
-                    n->weights[k] = xavier_init(prev, curr);
+                    n->weights[k] = xavier_init(prev, curr);// 1 > why weights > 0 ???  
                 }
             }
         }
