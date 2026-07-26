@@ -1,0 +1,33 @@
+-pass input to "float feed_neuron()
+-layer processing will process a layer and as you pass an output empty layer it will return the full 
+-then calc the mean error
+-then we start back propagation
+
+dC   dZ da dC
+-- = -- -- --
+dw   dw dz da
+
+C = cost
+
+         (l-1) 
+Z = w * a       + b -> result of prev layer weighted sum
+a = sigmoid(Z) -> activation value current layer 
+
+      (l-1)          (l)         (l)          l -> current layer  
+C' = a      * sig'(z)    * 2 * (a - y)        y -> desired values
+
+deriv of sigmoid = sig(x) * (1 - sig(x))
+
+gradient pseudo_code:
+    for each layer:
+        for each Neuron:
+            -create var for input vector
+            -create var for weights vector
+            -fill them
+            -them weighted sum them
+        -this retured value by Neuron will be Z; then after pass to sig() turns into -> a(activation)
+        -this activation will be used in the next layer to calc the Cost gradient
+        -so create an activations-previous-layer vector and fill it with the values returned by sig() used before
+        -then create an weighted-sum-current-layer to put the value of the weighted sum
+
+GOAL: decrease Cost by tunning weights and biases
